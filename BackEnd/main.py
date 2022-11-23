@@ -7,8 +7,10 @@ from view.view import View
 def main():
     print('[BackEnd]')
     
-    server = http.server.HTTPServer(server_address=('', 0), RequestHandlerClass=http.server.SimpleHTTPRequestHandler)
-    print(server.get_request())
+    server = http.server.HTTPServer(server_address=('', 80), RequestHandlerClass=http.server.SimpleHTTPRequestHandler)
+    request = server.get_request()
+    print(request)
+    server.serve_forever()
     
     controller = Controller(Model(), View())
 
