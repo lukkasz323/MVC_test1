@@ -7,8 +7,9 @@ class Client:
     
     def connect(self, server) -> None:
         self.handle_request(server, 'get_motd', '')
-        data = input('Update MOTD: ')
-        self.handle_request(server, 'set_motd', data)
+        while True:  
+            data = input('Update MOTD: ')
+            self.handle_request(server, 'set_motd', data)
         
         
     def handle_request(self, server, path: str, data) -> None:
